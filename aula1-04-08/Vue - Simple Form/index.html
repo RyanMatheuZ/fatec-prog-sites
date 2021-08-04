@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue: Simple Form</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- Vue (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="form" id="app">
+        <h1>Formulário</h1>
+
+        <div class="user-name">
+            <input placeholder="Seu nome:" v-model="name">
+        </div>
+
+        <div class="user-age" v-if="name && isNaN(this.name)">
+            <input placeholder="Sua idade:" v-model="age">
+        </div>
+
+        <div class="user-gender" v-if="age && !isNaN(this.age)">
+            <select id="gender" v-model="gender">
+                <option value="">Seu gênero:</option>
+                <option value="Male">Masculino</option>
+                <option value="Female">Feminino</option>
+            </select>
+        </div>
+
+        <div class="buttons">
+            <button class="clear-btn" v-if="gender && isNaN(this.gender)" @click="onClear">
+                Limpar
+            </button>
+
+            <button class="submit-btn" v-if="gender && isNaN(this.gender)" @click="onSubmit">
+                Enviar
+            </button>
+        </div>
+
+        <div class="result">
+            <p>{{ message }}</p>
+        </div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+
+</html>
