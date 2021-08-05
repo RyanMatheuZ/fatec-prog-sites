@@ -31,14 +31,10 @@
             </select>
         </div>
 
-        <div class="buttons">
-            <button class="clear-btn" v-if="gender && isNaN(this.gender)" @click="onClear">
-                Limpar
-            </button>
+        <div class="buttons" v-if="gender && isNaN(this.gender)">
+            <button class="clear-btn" @click="onClear">Limpar</button>
 
-            <button class="submit-btn" v-if="gender && isNaN(this.gender)" @click="onSubmit">
-                Enviar
-            </button>
+            <button class="submit-btn" @click="onSubmit">Enviar</button>
         </div>
 
         <div class="result">
