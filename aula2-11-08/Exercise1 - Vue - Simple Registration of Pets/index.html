@@ -18,15 +18,12 @@
 
         <select v-model="specie">
             <option value="">Espécie:</option>
-            <option value="boxer">Boxer</option>
-            <option value="poodle">Poodle</option>
-            <option value="husky">Husky</option>
-            <option value="pug">Pug</option>
+            <option v-for="item in species">{{ item }}</option>
         </select>
 
-        <button @click="onRegister">Cadastrar</button>
+        <button :disabled="!isNaN(name) || !name || !specie" @click="onRegister">Cadastrar</button>
 
-        <h2>Pets cadastrados:</h2>
+        <h2>Pets cadastrados ({{ totalPets }}):</h2>
 
         <ul>
             <li v-for="pet in pets">
