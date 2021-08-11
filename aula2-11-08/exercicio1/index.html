@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pets</title>
+    <!-- Vue (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Realize o cadastro de seu PET:</h1>
+
+        <input placeholder="Nome:" v-model="name"> 
+
+        <select v-model="specie">
+            <option value="">Espécie:</option>
+            <option value="boxer">Boxer</option>
+            <option value="poodle">Poodle</option>
+            <option value="husky">Husky</option>
+            <option value="pug">Pug</option>
+        </select>
+
+        <button @click="onRegister">Cadastrar</button>
+
+        <h2>Pets cadastrados:</h2>
+
+        <ul>
+            <li v-for="pet in pets">
+                <strong>Nome:</strong> {{ pet.petName }} - <strong>Espécie:</strong> {{ pet.petSpecie }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
