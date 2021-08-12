@@ -14,7 +14,7 @@ const app = new Vue({
                 petSpecie: this.specie
             })
 
-            this.totalPets =+ 1
+            this.totalPets += 1
 
             this.name = ''
             this.specie = ''
